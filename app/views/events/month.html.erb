@@ -1,0 +1,17 @@
+<!-- app/views/events/month.html.erb -->
+
+<div class="container">
+  <div class="row">
+    <% @months.each do |month| %>
+      <div class="col-md-3">
+        <div class="card mb-4">
+          <img src="<%= image_path('bg7.jpeg') %>" class="card-image" alt="Month Image">
+          <div class="card-body">
+            <h5 class="card-name"><%= month %></h5>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

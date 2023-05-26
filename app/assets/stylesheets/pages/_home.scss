@@ -1,0 +1,45 @@
+// Specific CSS for your home-page
+
+:root {
+  --background-image: url('/assets/background002.png'); /* Replace with the actual path to your image */
+}
+
+body {
+  background: linear-gradient(rgba(73, 52, 69, 0.5),rgba(73, 52, 69, 0.5)), var(--background-image) no-repeat center center fixed;
+  background-size: cover;
+  cursor: url(https://www.clipartmax.com/png/middle/149-1492018_enter-your-own-measurements-logo-de-cursos.png) 16 16, auto;
+
+}
+
+.logo-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+  text-align: center; /* Center-align the logo within its container */
+}
+
+.logo img {
+  max-width: 45%; /* Limits the logo width to fit its container */
+  max-height: 45%; /* Limits the logo height to fit its container */
+}
+
+.text-content {
+  text-align: center;
+}
+
+
+.text-content p {
+  font-size: 18px;
+  color: #b41c93;
+  /* Additional styling for the text */
+}
+
+a {
+  text-decoration: none;
+  color: #d8bdd2;
+}
