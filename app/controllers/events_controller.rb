@@ -7,6 +7,9 @@ class EventsController < ApplicationController
 
   def month
     @months = Date::MONTHNAMES.compact
+    @month = params[:month]
+    # Use the @month parameter in your query to filter events
+    @events = Event.where(month: @month)
   end
 
   def index

@@ -1,14 +1,75 @@
 <!-- app/views/events/month.html.erb -->
+<style>
+.card {
+  cursor: url(https://www.freepnglogos.com/uploads/bubbles/transparent-bubble-clip-art-creation-creatures-4.png), auto;
+  margin-top: 20px;
+  margin-left: 20px; /* Adjust the margin-left value to create spacing between the cards */
+  position: relative;
+  width: 250px;
+  height: auto;
+  background-color: transparent;
+  border-radius: 70px; /* Update the border-radius value to your desired radius */
+  box-shadow: 0 4px 6px rgba(160, 41, 41, 0.1);
+  overflow: hidden; /* Ensure images fit within the movie card */
+  transition: background-color 0.3s ease-in-out; /* Add transition effect for smooth color change */
+}
+
+.card .card-link{
+  color: white;
+  text-decoration: none;
+}
+
+.card .card-image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .card-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card .card-image:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)); /* Adjust the gradient colors as desired */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; /* Add transition effect for smooth opacity change */
+}
+
+.card:hover .card-image:before {
+  opacity: 1;
+}
+
+.card .card-name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Adjust the text color as needed */
+  background-color: transparent; /* Adjust the background color as needed */
+  border-radius: 5px;
+  font-size: 16px; /* Adjust the font size as needed */
+}
+</style>
 
 <div class="container">
   <div class="row">
     <% @months.each do |month| %>
       <div class="col-md-3">
         <div class="card mb-4">
-          <img src="<%= image_path('bg7.jpeg') %>" class="card-image" alt="Month Image">
+          <div class="card-image">
+            <img src="<%= image_path('bg7.jpeg') %>" alt="Month Image">
+          </div>
           <div class="card-body">
-            <h5 class="card-name"><%= month %></h5>
-
+            <h5 class="card-name"><%= link_to month, events_path(month), class: "card-link"%></h5>
           </div>
         </div>
       </div>

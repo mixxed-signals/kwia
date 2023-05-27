@@ -1,14 +1,56 @@
-<p style="color: green"><%= notice %></p>
+<style>
+  .card {
+    cursor: url(https://www.freepnglogos.com/uploads/bubbles/transparent-bubble-clip-art-creation-creatures-4.png), auto;
+    margin-top: 20px;
+    margin-left: 20px; /* Adjust the margin-left value to create spacing between the cards */
+    position: relative;
+    width: 250px;
+    height: auto;
+    background-color: transparent;
+    border-radius: 70px; /* Update the border-radius value to your desired radius */
+    box-shadow: 0 4px 6px rgba(160, 41, 41, 0.1);
+    overflow: hidden; /* Ensure images fit within the movie card */
+    transition: background-color 0.3s ease-in-out; /* Add transition effect for smooth color change */
+  }
 
-<h1>Events</h1>
+  .card:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Update the hover color as desired */
+  }
+
+  .card .card-image {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card .card-image img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .card .card-name {
+    color: white; /* Adjust the text color as needed */
+    background-color: transparent; /* Adjust the background color as needed */
+    border-radius: 5px;
+    font-size: 16px; /* Adjust the font size as needed */
+  }
+</style>
+
+<p style="color: green"><%= notice %></p>
 
 <div id="events">
   <% @events.each do |event| %>
-    <%= render event %>
-    <p>
-      <%= link_to "Show this event", event %>
-    </p>
+    <div class="card">
+      <div class="card-image">
+        <%= image_tag event.poster_url, alt: "Event Image" %>
+      </div>
+      <div class="card-name">
+      <br>
+        <h5 class='text-center'><%= event.name %> </h2>
+        <p class='text-center'> <%= event.date %></p>
+      </div>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New event", new_event_path %>
